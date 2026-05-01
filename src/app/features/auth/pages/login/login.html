@@ -1,1 +1,92 @@
-<p>login works!</p>
+<main class="min-h-screen px-4 py-10 flex items-center justify-center">
+  <section class="w-full max-w-md animate-scale-in">
+    <div class="bg-card border border-border rounded-2xl shadow-card p-6 sm:p-8">
+      <div class="mb-5 flex items-center justify-center gap-2">
+        <div
+          class="h-12 w-12 rounded-xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center shadow-elevated"
+        >
+          <lucide-icon [img]="sparkles" size="24" class="text-primary-foreground" />
+        </div>
+        <span class="text-2xl font-bold tracking-tight">
+          Social<span class="text-gradient">App</span>
+        </span>
+      </div>
+      <form class="mt-6 space-y-4">
+        <div class="space-y-2">
+          <label for="email" class="block text-sm font-medium text-foreground">Email</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="you@example.com"
+            class="h-11 w-full rounded-lg border border-border bg-input px-3 text-sm text-foreground placeholder:text-muted-foreground/70 outline-none transition-base focus:border-primary focus:ring-2 focus:ring-primary/30"
+          />
+        </div>
+
+        <div class="space-y-2">
+          <label for="password" class="block text-sm font-medium text-foreground">Password</label>
+          <div class="relative">
+            <input
+              id="password"
+              type="password"
+              placeholder="••••••••"
+              class="h-11 w-full rounded-lg border border-border bg-input px-3 pr-10 text-sm text-foreground placeholder:text-muted-foreground/70 outline-none transition-base focus:border-primary focus:ring-2 focus:ring-primary/30"
+            />
+            <button
+              type="button"
+              class="absolute inset-y-0 right-3 text-muted-foreground hover:text-foreground transition-base"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="h-11 w-full rounded-full bg-primary text-sm font-semibold text-primary-foreground shadow-elevated transition-base hover:brightness-110"
+        >
+          Log in
+        </button>
+      </form>
+
+      <div class="my-5 flex items-center gap-3 text-xs text-muted-foreground">
+        <div class="flex-1 h-px bg-border"></div>
+        or continue with
+        <div class="flex-1 h-px bg-border"></div>
+      </div>
+
+      <button
+        type="button"
+        class="h-11 w-full rounded-full border border-border bg-secondary text-sm font-medium text-foreground transition-base hover:border-primary/60 hover:bg-secondary/70 flex items-center justify-center gap-2"
+      >
+        <svg viewBox="0 0 48 48" class="h-5 w-5" aria-hidden="true">
+          <path
+            fill="#FFC107"
+            d="M43.6 20.5H42V20H24v8h11.3C33.7 32.4 29.3 35.5 24 35.5c-6.4 0-11.5-5.1-11.5-11.5S17.6 12.5 24 12.5c2.9 0 5.6 1.1 7.6 2.9l5.7-5.7C33.6 6.3 29 4.5 24 4.5 13.2 4.5 4.5 13.2 4.5 24S13.2 43.5 24 43.5c10.8 0 19.5-7.8 19.5-19.5 0-1.2-.1-2.3-.4-3.5z"
+          />
+          <path
+            fill="#FF3D00"
+            d="M6.3 14.7l6.6 4.8C14.7 15.7 19 12.5 24 12.5c2.9 0 5.6 1.1 7.6 2.9l5.7-5.7C33.6 6.3 29 4.5 24 4.5 16.3 4.5 9.7 8.9 6.3 14.7z"
+          />
+          <path
+            fill="#4CAF50"
+            d="M24 43.5c5 0 9.5-1.7 13-4.6l-6-5c-1.9 1.4-4.4 2.3-7 2.3-5.3 0-9.7-3-11.3-7.4l-6.5 5C9.5 39.1 16.2 43.5 24 43.5z"
+          />
+          <path
+            fill="#1976D2"
+            d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.3-4.3 5.7l6 5C40.4 35.6 43.5 30.3 43.5 24c0-1.2-.1-2.3-.4-3.5z"
+          />
+        </svg>
+        Log in with Google
+      </button>
+    </div>
+  </section>
+</main>

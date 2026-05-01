@@ -2,8 +2,8 @@ import { UserInterface } from "./user.interface";
 import { CommentInterface } from "./comment.interface";
 
 export interface PostInterface {
-  id: string;
-  author: UserInterface;
+  id: number;
+  author: Omit<UserInterface, 'email' | 'userName'>;
   content: string;
   imageUrl?: string;
   likes: number;
