@@ -1,0 +1,17 @@
+<div class="sticky top-4 rounded-2xl border border-border bg-card p-4 shadow-card">
+  <h2 class="mb-3 text-sm font-semibold text-foreground">Suggested for you</h2>
+  <div class="space-y-3">
+    @for (user of users; track user.id) {
+      <div class="flex items-center justify-between gap-3">
+        <app-profile-summary-component
+          avatarSize="sm"
+          [avatarUrl]="user.avatarUrl"
+          [name]="user.name"
+          [subtitle]="getSubtitle(user.handle)"
+          [containerClass]="['gap-2']"
+        />
+        <app-button-component variant="follow" size="sm">Follow</app-button-component>
+      </div>
+    }
+  </div>
+</div>

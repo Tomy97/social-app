@@ -1,0 +1,15 @@
+<div [ngClass]="['flex items-center gap-2', ...extraClass]">
+  <div
+    [ngClass]="[sizeClass]"
+    class="rounded-xl bg-linear-to-br from-primary to-primary-glow flex items-center justify-center shadow-elevated"
+  >
+    <app-icon-component
+      [icon]="sparkles"
+      [size]="iconSize"
+      [extraClass]="['text-primary-foreground']"
+    />
+  </div>
+  <span class="text-2xl font-bold tracking-tight">
+    Social<span class="text-gradient">App</span>
+  </span>
+</div>

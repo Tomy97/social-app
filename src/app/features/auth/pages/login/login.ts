@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
-import { Sparkles, LucideAngularModule } from 'lucide-angular'
+import { LoginFormCardComponent } from '../../../../shared/components/organisms/login-form-card-component/login-form-card-component';
 
 @Component({
   selector: 'app-login',
-  imports: [LucideAngularModule],
+  imports: [LoginFormCardComponent],
   templateUrl: './login.html',
 })
-export class Login {
-  readonly sparkles = Sparkles;
-}
+export class Login {}

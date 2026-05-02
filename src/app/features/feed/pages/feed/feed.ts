@@ -1,45 +1,24 @@
 import { Component } from '@angular/core';
-import {
-  LucideAngularModule,
-  House,
-  Compass,
-  TrendingUp,
-  Bookmark,
-  User,
-  Search,
-  Plus,
-  LogOut,
-  Heart,
-  MessageCircle,
-  Repeat2,
-  Image,
-  Ellipsis
-} from 'lucide-angular';
 
 import { initialPosts, currentUser, users } from '../../../../lib/mock/mock-data';
 import { PostInterface } from '../../../../interfaces/post.interface';
 import { UserInterface } from '../../../../interfaces/user.interface';
+import { FeedHeaderComponent } from '../../../../shared/components/organisms/feed-header-component/feed-header-component';
+import { CreatePostComposerComponent } from '../../../../shared/components/organisms/create-post-composer-component/create-post-composer-component';
+import { PostCardComponent } from '../../../../shared/components/organisms/post-card-component/post-card-component';
+import { SuggestionsCardComponent } from '../../../../shared/components/organisms/suggestions-card-component/suggestions-card-component';
 
 @Component({
   selector: 'app-feed',
-  imports: [LucideAngularModule],
+  imports: [
+    FeedHeaderComponent,
+    CreatePostComposerComponent,
+    PostCardComponent,
+    SuggestionsCardComponent,
+  ],
   templateUrl: './feed.html',
 })
 export class Feed {
-  readonly house = House;
-  readonly compass = Compass;
-  readonly trendingUp = TrendingUp;
-  readonly bookmark = Bookmark;
-  readonly user = User;
-  readonly search = Search;
-  readonly plus = Plus;
-  readonly logOut = LogOut;
-  readonly heart = Heart;
-  readonly messageCircle = MessageCircle;
-  readonly repeat2 = Repeat2;
-  readonly image = Image;
-  readonly ellipsis = Ellipsis;
-
   posts: PostInterface[] = initialPosts;
   currentUser: UserInterface = currentUser;
   users: Omit<UserInterface, 'email' | 'userName'>[] = users;

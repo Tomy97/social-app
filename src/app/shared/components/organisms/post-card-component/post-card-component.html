@@ -1,0 +1,59 @@
+<article class="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+  <div class="p-4">
+    <div class="mb-3 flex items-start justify-between">
+      <app-profile-summary-component
+        [avatarUrl]="post.author.avatarUrl"
+        [name]="post.author.name"
+        [subtitle]="postSubtitle"
+      />
+      <button class="text-muted-foreground">
+        <lucide-icon [img]="ellipsis" size="15" />
+      </button>
+    </div>
+    <p class="text-sm leading-relaxed text-foreground/90">
+      Just shipped a new design system in pure violet. There&apos;s something hypnotic about a single
+      accent color doing all the heavy lifting.
+    </p>
+  </div>
+  @if (post.imageUrl) {
+    <div class="h-[380px] w-full bg-secondary">
+      <img [src]="post.imageUrl" alt="Post Image" class="h-full w-full object-cover" />
+    </div>
+  } @else {
+    <div class="h-[380px] w-full bg-secondary"></div>
+  }
+
+  <div
+    class="flex items-center justify-between gap-6 border-t border-border px-4 py-3 text-sm text-muted-foreground"
+  >
+    <div class="flex items-center gap-2">
+      <button
+        type="button"
+        class="flex items-center h-9 rounded-md px-3 gap-2 text-muted-foreground hover:text-like hover:bg-like/10"
+      >
+        <lucide-icon [img]="heart" size="15" />
+        248
+      </button>
+      <button
+        type="button"
+        class="flex items-center h-9 rounded-md px-3 gap-2 text-muted-foreground hover:text-primary hover:bg-primary/10"
+      >
+        <lucide-icon [img]="messageCircle" size="15" />
+        2
+      </button>
+      <button
+        type="button"
+        class="flex items-center h-9 rounded-md px-3 gap-2 text-muted-foreground hover:text-primary hover:bg-primary/10"
+      >
+        <lucide-icon [img]="repeat2" size="15" />
+        6
+      </button>
+    </div>
+    <button
+      type="button"
+      class="h-9 rounded-full px-3 text-muted-foreground hover:text-primary hover:bg-primary/10"
+    >
+      <lucide-icon [img]="bookmark" size="15" />
+    </button>
+  </div>
+</article>
