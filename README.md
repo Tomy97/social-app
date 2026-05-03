@@ -1,59 +1,69 @@
 # SocialApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.9.
+SocialApp es una aplicacion web estilo red social construida con Angular. El flujo general es:
 
-## Development server
+1. El usuario abre la app y accede a la pantalla de autenticacion.
+2. Inicia sesion con sus credenciales.
+3. Al autenticarse correctamente, entra al home (feed), donde puede ver publicaciones y crear nuevas.
 
-To start a local development server, run:
+La interfaz se desarrollo siguiendo la metodologia de **Atomic Design** (atoms, molecules, organisms, pages) para mantener componentes reutilizables y escalables.
+
+Ademas, la app consume una API externa para generar/obtener avatares de usuario.
+
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) version 21.2.9.
+
+## Clonar el repositorio
+
+```bash
+git clone <URL_DEL_REPOSITORIO>
+cd social-app
+```
+
+## Instalacion
+
+Instala las dependencias del proyecto:
+
+```bash
+npm install
+```
+
+## Levantar el proyecto en desarrollo
+
+Para iniciar el servidor local:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Luego abre `http://localhost:4200/` en tu navegador.
 
-## Code scaffolding
+## Como loguearse
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. Inicia la aplicacion con `ng serve`.
+2. Entra a la pantalla de login.
+3. Puedes ingresar con email y password, o usar el boton de login con Google.
+4. Credenciales de prueba:
+  - Email: `you@example.com`
+  - Password: `123456`
+5. Presiona el boton de login.
+6. Si los datos son correctos, seras redirigido al home.
 
-```bash
-ng generate component component-name
-```
+## Que tiene el home
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+En el home se muestran las funcionalidades principales de la app:
 
-```bash
-ng generate --help
-```
+- Lista de publicaciones recientes.
+- Tarjetas de post con su contenido.
+- Modal para poder crear un nuevo post
+- Acciones por post (Like, Commentar, Repost y guardado)
 
-## Building
+## Build
 
-To build the project run:
+Para compilar el proyecto:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Los archivos generados se guardan en `dist/`.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
