@@ -1,8 +1,9 @@
-import { UserInterface } from "./user.interface";
+import { AuthorInterface } from "./author.interface";
 
 export interface CommentInterface {
-  id: string;
-  author: UserInterface;
+  id: number;
+  author: AuthorInterface;
   content: string;
+  text: string;
   createdAt: string;
 }

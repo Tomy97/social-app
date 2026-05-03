@@ -1,0 +1,45 @@
+<article class="overflow-hidden rounded-2xl border border-border bg-card shadow-card mb-4">
+  <div class="p-4">
+    <div class="mb-3 flex items-start justify-between">
+      <app-profile-summary-component
+        [avatarUrl]="post.author.avatarUrl"
+        [name]="post.author.name"
+        [subtitle]="postSubtitle"
+      />
+      <app-button-component variant="ghost" size="icon" [extraClass]="['text-muted-foreground']">
+        <lucide-icon [img]="ellipsis" size="15" />
+      </app-button-component>
+    </div>
+    <p class="text-sm leading-relaxed text-foreground/90">
+      {{ post.content }}
+    </p>
+  </div>
+  @if (post.imageUrl) {
+    <div class="w-full bg-secondary/50">
+      <img
+        [src]="post.imageUrl"
+        alt="Imagen de la publicación"
+        class="max-h-[620px] w-full object-contain"
+      />
+    </div>
+  }
+
+  <app-post-actions-component
+    [post]="post"
+    [commentsOpen]="isCommentsOpen"
+    (likeToggled)="onToggleLike()"
+    (repostedToggled)="onToggleReposted()"
+    (saveToggled)="onToggleSave()"
+    (commentToggled)="onToggleComments()"
+  />
+
+  @if (isCommentsOpen) {
+    <app-post-comments-component
+      [comments]="post.comments"
+      [currentUser]="currentUser"
+      [commentContent]="commentContent"
+      (commentContentChange)="onCommentContentChange($event)"
+      (commentSubmitted)="onCommentSubmitted()"
+    />
+  }
+</article>
