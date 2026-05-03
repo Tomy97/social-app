@@ -1,13 +1,20 @@
 <main class="min-h-screen">
-  <app-feed-header-component [currentUser]="currentUser" />
+  <app-navbar-component [currentUser]="currentUser" (logout)="onLogout()"></app-navbar-component>
 
   <div class="mx-auto grid w-full max-w-[1280px] grid-cols-12 gap-4 px-4 py-4">
     <div class="col-span-12 lg:col-span-2"></div>
     <section class="col-span-12 lg:col-span-7 space-y-4">
-      <app-create-post-composer-component [currentUser]="currentUser" />
+      <app-create-post-composer-component [currentUser]="currentUser" (createPost)="onCreatePost($event)" />
 
       @for (post of posts; track post.id) {
-        <app-post-card-component [post]="post" />
+        <app-post-card-component
+          [post]="post"
+          [currentUser]="currentUser"
+          (likeToggled)="onToggleLike($event)"
+          (repostedToggled)="repostedToggled($event)"
+          (saveToggled)="onToggleSave($event)"
+          (commentAdded)="onAddComment($event)"
+        />
       } @empty {
         <div class="flex items-center justify-center">
           <h3>No hay posts para mostrar</h3>
@@ -15,7 +22,7 @@
       }
     </section>
 
-    <aside class="col-span-12 lg:col-span-3">
+    <aside class="col-span-12 hidden lg:col-span-3 lg:block">
       <app-suggestions-card-component [users]="users" />
     </aside>
   </div>

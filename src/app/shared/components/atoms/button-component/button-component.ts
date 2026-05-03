@@ -9,6 +9,7 @@ export class ButtonComponent {
   @Input() variant: 'primary' | 'secondary' | 'ghost' | 'follow' = 'primary';
   @Input() size: 'full' | 'md' | 'sm' | 'icon' = 'md';
   @Input() type: 'button' | 'submit' = 'button';
+  @Input() disabled = false;
   @Input() extraClass: string[] = [];
   get classes(): string {
     const variants = {
@@ -25,6 +26,7 @@ export class ButtonComponent {
       icon: 'h-9 w-9 rounded-full',
     };
 
-    return `${variants[this.variant]} ${sizes[this.size]} text-sm font-semibold transition-base`;
+    const disabledClasses = this.disabled ? 'opacity-70 cursor-not-allowed pointer-events-none' : '';
+    return `${variants[this.variant]} ${sizes[this.size]} ${disabledClasses} text-sm font-semibold transition-base`;
   }
 }

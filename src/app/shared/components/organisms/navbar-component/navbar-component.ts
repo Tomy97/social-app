@@ -5,11 +5,11 @@ import { LogoComponent } from '../../molecules/logo-component/logo-component';
 import { SearchInputComponent } from '../../molecules/search-input-component/search-input-component';
 
 @Component({
-  selector: 'app-feed-header-component',
+  selector: 'app-navbar-component',
   imports: [LucideAngularModule, LogoComponent, SearchInputComponent],
-  templateUrl: './feed-header-component.html',
+  templateUrl: './navbar-component.html',
 })
-export class FeedHeaderComponent {
+export class NavbarComponent {
   @Input({ required: true }) currentUser!: UserInterface;
   @Output() logout = new EventEmitter<void>();
 

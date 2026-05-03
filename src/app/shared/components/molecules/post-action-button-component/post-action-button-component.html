@@ -1,0 +1,15 @@
+<button
+  type="button"
+  [class]="classes"
+  [attr.aria-pressed]="active"
+  (click)="pressed.emit()"
+>
+  <lucide-icon
+    [img]="icon"
+    [size]="iconSize"
+    [iconFill]="iconFill"
+  />
+  @if (label) {
+    <span>{{ label }}</span>
+  }
+</button>

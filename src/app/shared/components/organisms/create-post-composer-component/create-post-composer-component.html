@@ -1,12 +1,122 @@
-<article class="rounded-2xl border border-border bg-card p-4 shadow-card">
-  <div class="flex items-center gap-3">
-    <div class="h-10 w-10 rounded-full bg-primary/20">
-      <img [src]="currentUser.avatarUrl" alt="Avatar" class="h-full w-full rounded-full" />
-    </div>
-    <app-input-component type="text" variant="composer" placeholder="What's on your mind?" />
-    <button class="inline-flex items-center gap-1 rounded-lg bg-primary/20 px-3 py-2 text-xs font-medium text-primary">
-      <lucide-icon [img]="image" size="14" />
-      Post
-    </button>
+<article
+  class="flex items-center justify-between rounded-2xl border border-border bg-card p-4 shadow-card hover:border-primary/40 mb-4"
+  (click)="openModal()"
+>
+  <div class="flex flex-row items-center gap-3">
+    <img [src]="currentUser.avatarUrl" alt="Avatar" class="h-10 w-10 rounded-full bg-primary/20" />
+    <span class="flex-1 text-left text-sm text-muted-foreground">What's on your mind?</span>
   </div>
+  <p
+    class="hidden sm:inline-flex items-center gap-1 rounded-lg bg-primary/20 px-3 py-2 text-xs font-medium text-primary"
+  >
+    Post
+  </p>
 </article>
+
+<button
+  type="button"
+  class="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-elevated transition-base hover:brightness-110 sm:hidden"
+  (click)="openModal()"
+  aria-label="Create post"
+>
+  <lucide-icon [img]="plus" size="22" />
+</button>
+
+@if (isModalOpen) {
+  <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/65 p-4">
+    <div class="w-full max-w-xl rounded-2xl border border-border bg-card p-6 shadow-elevated" (click)="$event.stopPropagation()">
+      <div class="mb-4 flex items-center justify-between">
+        <h3 class="text-3xl font-bold text-foreground">Create a post</h3>
+        <button
+          type="button"
+          class="rounded-md p-1 text-muted-foreground transition-base hover:bg-secondary hover:text-foreground"
+          (click)="closeModal()"
+        >
+          <lucide-icon [img]="close" size="18" />
+        </button>
+      </div>
+
+      <div class="mb-4 flex items-start gap-3">
+        <div class="h-10 w-10 rounded-full bg-primary/20">
+          <img [src]="currentUser.avatarUrl" alt="Avatar" class="h-full w-full rounded-full" />
+        </div>
+        <textarea
+          [value]="content"
+          (input)="onContentChange($event)"
+          [attr.maxlength]="maxCharacters"
+          placeholder="What's on your mind?"
+          class="min-h-36 w-full resize-none rounded-xl border border-primary bg-input p-4 text-lg text-foreground outline-none transition-base placeholder:text-muted-foreground/80 focus:border-primary-glow focus:ring-1 focus:ring-primary/70"
+        ></textarea>
+      </div>
+
+      <div
+        class="mb-4 flex min-h-28 items-center justify-center rounded-xl border border-dashed border-border bg-secondary/30 text-muted-foreground transition-base"
+        [class.border-primary]="isDragOver"
+        [class.bg-primary/10]="isDragOver"
+        (dragover)="onDragOver($event)"
+        (dragleave)="onDragLeave($event)"
+        (drop)="onDrop($event)"
+      >
+        <input
+          #imageFileInput
+          type="file"
+          accept="image/*"
+          class="hidden"
+          (change)="onSelectImage($event)"
+        />
+        @if (imagePreviewUrl) {
+          <div class="relative w-full p-3">
+            <img
+              [src]="imagePreviewUrl"
+              alt="Selected image preview"
+              class="h-36 w-full rounded-lg object-cover"
+            />
+            <button
+              type="button"
+              class="absolute right-5 top-5 rounded-md bg-black/60 px-2 py-1 text-xs text-white transition-base hover:bg-black/75"
+              (click)="removeImage()"
+            >
+              Remove
+            </button>
+          </div>
+        } @else {
+          <div class="text-center">
+            <lucide-icon [img]="image" size="22" class="mx-auto mb-2" />
+            <p>
+              Drag & drop an image, or
+              <button
+                type="button"
+                class="text-primary hover:underline"
+                (click)="imageFileInput.click()"
+              >
+                browse
+              </button>
+            </p>
+          </div>
+        }
+      </div>
+
+      <div class="mb-5 text-sm text-muted-foreground">
+        {{ remainingCharacters }} characters left
+      </div>
+
+      <div class="flex items-center justify-end gap-3">
+        <button
+          type="button"
+          class="h-10 rounded-xl bg-secondary px-5 font-semibold text-foreground transition-base hover:bg-secondary/70"
+          (click)="closeModal()"
+        >
+          Cancel
+        </button>
+        <button
+          type="button"
+          class="h-10 rounded-xl bg-primary px-5 font-semibold text-primary-foreground transition-base hover:brightness-110 disabled:pointer-events-none disabled:opacity-60"
+          [disabled]="!canPublish"
+          (click)="onPublish()"
+        >
+          Publish
+        </button>
+      </div>
+    </div>
+  </div>
+}

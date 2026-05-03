@@ -2,5 +2,8 @@
   [attr.id]="id || null"
   [type]="type"
   [placeholder]="placeholder"
+  [value]="value"
+  [attr.aria-invalid]="invalid ? 'true' : null"
   [class]="classes"
+  (input)="onInput($event)"
 />

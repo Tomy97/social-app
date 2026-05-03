@@ -1,4 +1,14 @@
-<div class="space-y-2">
+<div class="space-y-4 mb-4">
   <label [for]="id" class="block text-sm font-medium text-foreground">{{ label }}</label>
-  <app-input-component [id]="id" [type]="type" [placeholder]="placeholder" />
+  <app-input-component
+    [id]="id"
+    [type]="type"
+    [placeholder]="placeholder"
+    [value]="value"
+    [invalid]="invalid"
+    (valueChange)="valueChange.emit($event)"
+  />
+  @if (invalid && errorMessage) {
+    <p class="text-sm text-destructive">{{ errorMessage }}</p>
+  }
 </div>

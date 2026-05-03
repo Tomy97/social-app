@@ -8,6 +8,8 @@ export interface PostInterface {
   imageUrl?: string;
   likes: number;
   liked: boolean;
+  reposts?: number;
+  reposted?: boolean;
   saved: boolean;
   comments: CommentInterface[];
   createdAt: string;

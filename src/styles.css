@@ -26,6 +26,7 @@
   --color-border: hsl(0 0% 16%);
   --color-input: hsl(0 0% 14%);
   --color-ring: hsl(262 83% 58%);
+  --color-reposted: hsl(158 100% 36%);
 
   /* Border radius */
   --radius-lg: 0.75rem;
@@ -147,4 +148,24 @@
   .transition-base {
     transition: all var(--transition-base);
   }
+
+  .icon-like svg {
+    fill: var(--color-like) !important;
+    color: var(--color-like) !important;
+  }
+
+  .icon-primary svg {
+    fill: var(--color-primary) !important;
+    color: var(--color-primary) !important;
+  }
+
+  .icon-reposted svg {
+    stroke: var(--color-reposted) !important;
+    fill: none !important;
+    color: var(--color-reposted) !important;
+  }
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { InputComponent } from '../../atoms/input-component/input-component';
 
 @Component({
@@ -11,4 +11,8 @@ export class FormInputComponent {
   @Input() label = '';
   @Input() placeholder = '';
   @Input() type: 'text' | 'email' = 'text';
+  @Input() value = '';
+  @Input() invalid = false;
+  @Input() errorMessage = '';
+  @Output() valueChange = new EventEmitter<string>();
 }
