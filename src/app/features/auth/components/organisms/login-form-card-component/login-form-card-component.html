@@ -1,0 +1,55 @@
+<div class="bg-card border border-border rounded-2xl shadow-card p-6 sm:p-8">
+  <app-logo-component size="md" [extraClass]="['mb-5 flex items-center justify-center gap-2']" />
+  <form class="mt-6 space-y-4" (submit)="onSubmit($event)" novalidate>
+    <app-form-input-component
+      id="email"
+      label="Email"
+      type="email"
+      placeholder="you@example.com"
+      [value]="email"
+      [invalid]="!!emailError"
+      [errorMessage]="emailError"
+      (valueChange)="onEmailChange($event)"
+    />
+    <app-password-input-component
+      id="password"
+      label="Password"
+      placeholder="••••••••"
+      [value]="password"
+      [invalid]="!!passwordError"
+      [errorMessage]="passwordError"
+      (valueChange)="onPasswordChange($event)"
+    />
+
+    @if (authStore.error()) {
+      <p class="text-sm text-destructive">{{ authStore.error() }}</p>
+    }
+
+    <app-button-component
+      variant="primary"
+      size="full"
+      type="submit"
+      [extraClass]="['my-6']"
+      [disabled]="authStore.loading()"
+    >
+      {{ authStore.loading() ? 'Logging in...' : 'Log in' }}
+    </app-button-component>
+  </form>
+
+  <div class="my-5 flex items-center gap-3 text-xs text-muted-foreground">
+    <div class="flex-1 h-px bg-border"></div>
+    or continue with
+    <div class="flex-1 h-px bg-border"></div>
+  </div>
+
+  <app-button-component
+    variant="ghost"
+    size="full"
+    type="button"
+    [disabled]="authStore.loading()"
+    (click)="onGoogleLogin()"
+  >
+    <app-google-icon />
+    {{ authStore.loading() ? 'Connecting to Google...' : 'Log in with Google' }}
+  </app-button-component>
+</div>

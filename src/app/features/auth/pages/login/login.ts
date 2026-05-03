@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { LoginFormCardComponent } from '@features/auth/components/organisms/login-form-card-component/login-form-card-component';
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  imports: [LoginFormCardComponent],
   templateUrl: './login.html',
 })
 export class Login {}

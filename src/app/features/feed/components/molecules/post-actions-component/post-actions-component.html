@@ -1,0 +1,40 @@
+<div
+  class="flex items-center justify-between gap-6 border-t border-border px-4 py-3 text-sm text-muted-foreground"
+>
+  <div class="flex items-center gap-2">
+    <app-post-action-button-component
+      [icon]="heart"
+      [label]="post.likes"
+      [active]="post.liked"
+      activeClass="text-like"
+      iconFillActive="var(--color-like)"
+      baseClass="h-9 rounded-md px-3 hover:text-like hover:bg-like/10"
+      (pressed)="likeToggled.emit()"
+    />
+    <app-post-action-button-component
+      [icon]="messageCircle"
+      [label]="post.comments.length"
+      [active]="commentsOpen"
+      activeClass="border border-primary text-primary bg-primary/10"
+      inactiveClass="text-muted-foreground sm:hover:text-primary sm:hover:bg-primary/10"
+      (pressed)="commentToggled.emit()"
+    />
+    <app-post-action-button-component
+      [icon]="repeat2"
+      [label]="post.reposts ?? 0"
+      [active]="post.reposted ?? false"
+      activeClass="text-reposted"
+      inactiveClass="text-muted-foreground sm:hover:text-reposted sm:hover:bg-reposted/10"
+      (pressed)="repostedToggled.emit()"
+    />
+  </div>
+  <app-post-action-button-component
+    [icon]="bookmark"
+    [active]="post.saved"
+    activeClass="text-primary"
+    inactiveClass="text-muted-foreground sm:hover:text-primary sm:hover:bg-primary/10"
+    baseClass="h-9 rounded-full px-3"
+    iconFillActive="var(--color-primary)"
+    (pressed)="saveToggled.emit()"
+  />
+</div>
