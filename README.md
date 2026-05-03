@@ -37,6 +37,32 @@ ng serve
 
 Luego abre `http://localhost:4200/` en tu navegador.
 
+## Ejecutar en modo SSR
+
+Para compilar la app con SSR:
+
+```bash
+ng build
+```
+
+Para levantar el servidor SSR compilado:
+
+```bash
+npm run serve:ssr:social-app
+```
+
+Luego abre `http://localhost:4000/` en tu navegador.
+
+## Rutas SSR y CSR
+
+Actualmente las rutas estan configuradas asi:
+
+- `/login`: SSR (`RenderMode.Server`)
+- `/feed`: CSR (`RenderMode.Client`)
+- `/**`: Prerender (`RenderMode.Prerender`)
+
+Esta configuracion esta definida en `src/app/app.routes.server.ts`.
+
 ## Como loguearse
 
 1. Inicia la aplicacion con `ng serve`.
