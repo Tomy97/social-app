@@ -6,9 +6,9 @@
         [name]="post.author.name"
         [subtitle]="postSubtitle"
       />
-      <button class="text-muted-foreground">
+      <app-button-component variant="ghost" size="icon" [extraClass]="['text-muted-foreground']">
         <lucide-icon [img]="ellipsis" size="15" />
-      </button>
+      </app-button-component>
     </div>
     <p class="text-sm leading-relaxed text-foreground/90">
       {{ post.content }}

@@ -3,12 +3,13 @@ import { Ellipsis, LucideAngularModule } from 'lucide-angular';
 import { UserInterface } from '@interfaces/user.interface';
 import { PostInterface } from '@interfaces/post.interface';
 import { ProfileSummaryComponent } from '@shared/components/molecules/profile-summary-component/profile-summary-component';
+import { ButtonComponent } from '@shared/components/atoms/button-component/button-component';
 import { PostActionsComponent } from '../../molecules/post-actions-component/post-actions-component';
 import { PostCommentsComponent } from '../../molecules/post-comments-component/post-comments-component';
 
 @Component({
   selector: 'app-post-card-component',
-  imports: [LucideAngularModule, ProfileSummaryComponent, PostActionsComponent, PostCommentsComponent],
+  imports: [LucideAngularModule, ProfileSummaryComponent, ButtonComponent, PostActionsComponent, PostCommentsComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './post-card-component.html',
 })
