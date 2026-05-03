@@ -9,7 +9,7 @@ import { PostCommentsComponent } from '../../molecules/post-comments-component/p
 
 @Component({
   selector: 'app-post-card-component',
-  imports: [LucideAngularModule, ProfileSummaryComponent, ButtonComponent, PostActionsComponent, PostCommentsComponent],
+  imports: [LucideAngularModule, ProfileSummaryComponent, PostActionsComponent, PostCommentsComponent, ButtonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './post-card-component.html',
 })
