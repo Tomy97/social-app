@@ -4,12 +4,12 @@
 >
   <div class="flex flex-row items-center gap-3">
     <img [src]="currentUser.avatarUrl" alt="Avatar" class="h-10 w-10 rounded-full bg-primary/20" />
-    <span class="flex-1 text-left text-sm text-muted-foreground">What's on your mind?</span>
+    <span class="flex-1 text-left text-sm text-muted-foreground">¿Qué estás pensando?</span>
   </div>
   <p
     class="hidden sm:inline-flex items-center gap-1 rounded-lg bg-primary/20 px-3 py-2 text-xs font-medium text-primary"
   >
-    Post
+    Publicar
   </p>
 </article>
 
@@ -17,7 +17,7 @@
   type="button"
   class="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-elevated transition-base hover:brightness-110 sm:hidden"
   (click)="openModal()"
-  aria-label="Create post"
+  aria-label="Crear publicación"
 >
   @if (plus) {
     <lucide-icon [img]="plus" size="22" />

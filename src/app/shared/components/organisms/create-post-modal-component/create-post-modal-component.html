@@ -4,7 +4,7 @@
     (click)="$event.stopPropagation()"
   >
     <div class="mb-4 flex items-center justify-between">
-      <h3 class="text-lg font-bold text-foreground">Create a post</h3>
+      <h3 class="text-lg font-bold text-foreground">Crear una publicación</h3>
       <button
         type="button"
         class="rounded-md p-1 text-muted-foreground transition-base hover:bg-secondary hover:text-foreground"
@@ -24,7 +24,7 @@
         [value]="content"
         (input)="onContentChange($event)"
         [attr.maxlength]="maxCharacters"
-        placeholder="What's on your mind?"
+        placeholder="¿Qué estás pensando?"
         class="min-h-36 w-full resize-none rounded-xl border border-primary bg-input p-4 text-lg text-foreground outline-none transition-base placeholder:text-muted-foreground/80 focus:border-primary-glow focus:ring-1 focus:ring-primary/70"
       ></textarea>
     </div>
@@ -56,7 +56,7 @@
             class="absolute right-5 top-5 rounded-md bg-black/60 px-2 py-1 text-xs text-white transition-base hover:bg-black/75"
             (click)="removeImage()"
           >
-            Remove
+            Quitar
           </button>
         </div>
       } @else {
@@ -65,20 +65,20 @@
             <lucide-icon [img]="image" size="22" class="mx-auto mb-2" />
           }
           <p>
-            Drag & drop an image, or
+            Arrastra y suelta una imagen, o
             <button
               type="button"
               class="text-primary hover:underline"
               (click)="imageFileInput.click()"
             >
-              browse
+              explorar
             </button>
           </p>
         </div>
       }
     </div>
 
-    <div class="mb-5 text-sm text-muted-foreground">{{ remainingCharacters }} characters left</div>
+    <div class="mb-5 text-sm text-muted-foreground">{{ remainingCharacters }} caracteres restantes</div>
 
     <div class="flex items-center justify-end gap-3">
       <button
@@ -86,7 +86,7 @@
         class="h-10 rounded-xl bg-secondary px-5 font-semibold text-foreground transition-base hover:bg-secondary/70"
         (click)="closeModal()"
       >
-        Cancel
+        Cancelar
       </button>
       <button
         type="button"
@@ -94,7 +94,7 @@
         [disabled]="!canPublish"
         (click)="onPublish()"
       >
-        Publish
+        Publicar
       </button>
     </div>
   </div>

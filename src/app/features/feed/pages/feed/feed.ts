@@ -55,7 +55,7 @@ export class Feed {
       author,
       content,
       imageUrl,
-      createdAt: 'now',
+      createdAt: 'ahora',
       likes: 0,
       liked: false,
       reposts: 0,
@@ -127,7 +127,7 @@ export class Feed {
       author,
       content: normalizedContent,
       text: normalizedContent,
-      createdAt: 'now',
+      createdAt: 'ahora',
     };
 
     const updatedPosts = this.posts.map((post) =>
@@ -184,6 +184,11 @@ export class Feed {
   private normalizePosts(posts: PostInterface[]): PostInterface[] {
     return posts.map((post) => ({
       ...post,
+      createdAt: post.createdAt === 'now' ? 'ahora' : post.createdAt,
+      comments: post.comments.map((comment) => ({
+        ...comment,
+        createdAt: comment.createdAt === 'now' ? 'ahora' : comment.createdAt,
+      })),
       reposted: post.reposted ?? false,
       reposts: post.reposts ?? 0,
     }));

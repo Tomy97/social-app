@@ -8,7 +8,7 @@ import { InputComponent } from '../../atoms/input-component/input-component';
   templateUrl: './search-input-component.html',
 })
 export class SearchInputComponent {
-  @Input() placeholder = 'Search SocialApp';
+  @Input() placeholder = 'Buscar';
 
   readonly search = Search;
 }

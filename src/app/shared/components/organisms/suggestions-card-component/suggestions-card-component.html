@@ -1,7 +1,7 @@
 <div
   class="fixed left-4 right-4 top-20 z-30 rounded-2xl border border-border bg-card p-4 shadow-card lg:sticky lg:top-20 lg:left-auto lg:right-auto lg:z-auto"
 >
-  <h2 class="mb-3 text-sm font-semibold text-foreground">Suggested for you</h2>
+  <h2 class="mb-3 text-sm font-semibold text-foreground">Sugerencias para ti</h2>
   <div class="space-y-3">
     @for (user of users; track user.id) {
       <div class="flex items-center justify-between gap-3">
@@ -12,7 +12,7 @@
           [subtitle]="getSubtitle(user.handle)"
           [containerClass]="['gap-2']"
         />
-        <app-button-component variant="follow" size="sm">Follow</app-button-component>
+        <app-button-component variant="follow" size="sm">Seguir</app-button-component>
       </div>
     }
   </div>
