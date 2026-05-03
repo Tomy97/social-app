@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { ButtonComponent } from '../../atoms/button-component/button-component';
+import { ButtonComponent } from '@shared/components/atoms/button-component/button-component';
 import { GoogleIcon } from '../../atoms/google-icon/google-icon';
-import { LogoComponent } from '../../molecules/logo-component/logo-component';
+import { LogoComponent } from '@shared/components/molecules/logo-component/logo-component';
 import { PasswordInputComponent } from '../../molecules/password-input-component/password-input-component';
 import { FormInputComponent } from '../../molecules/form-input-component/form-input-component';
-import { AuthStore } from '../../../../features/auth/store/auth.store';
+import { AuthStore } from '@features/auth/store/auth.store';
 
 @Component({
   selector: 'app-login-form-card-component',

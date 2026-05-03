@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-input-component',
   imports: [],
+  standalone: true,
   templateUrl: './input-component.html',
 })
 export class InputComponent {

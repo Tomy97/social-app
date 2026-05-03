@@ -1,15 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { initialPosts, currentUser, users } from '../../../../lib/mock/mock-data';
-import { CommentInterface } from '../../../../interfaces/comment.interface';
-import { PostInterface } from '../../../../interfaces/post.interface';
-import { UserInterface } from '../../../../interfaces/user.interface';
-import { NavbarComponent } from '../../../../shared/components/organisms/navbar-component/navbar-component';
-import { CreatePostComposerComponent } from '../../../../shared/components/organisms/create-post-composer-component/create-post-composer-component';
-import { PostCardComponent } from '../../../../shared/components/organisms/post-card-component/post-card-component';
-import { SuggestionsCardComponent } from '../../../../shared/components/organisms/suggestions-card-component/suggestions-card-component';
-import { AuthStore } from '../../../auth/store/auth.store';
+import { currentUser, initialPosts, users } from '@lib/mock/mock-data';
+import { CommentInterface } from '@interfaces/comment.interface';
+import { PostInterface } from '@interfaces/post.interface';
+import { UserInterface } from '@interfaces/user.interface';
+import { NavbarComponent } from '@features/feed/components/organisms/navbar-component/navbar-component';
+import { CreatePostComposerComponent } from '@features/feed/components/organisms/create-post-composer-component/create-post-composer-component';
+import { PostCardComponent } from '@features/feed/components/organisms/post-card-component/post-card-component';
+import { AuthStore } from '@features/auth/store/auth.store';
 
 const POSTS_STORAGE_KEY = 'social-app-posts';
 
@@ -19,7 +18,6 @@ const POSTS_STORAGE_KEY = 'social-app-posts';
     NavbarComponent,
     CreatePostComposerComponent,
     PostCardComponent,
-    SuggestionsCardComponent,
   ],
   templateUrl: './feed.html',
 })

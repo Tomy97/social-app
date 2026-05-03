@@ -1,9 +1,8 @@
 <main class="min-h-screen">
   <app-navbar-component [currentUser]="currentUser" (logout)="onLogout()"></app-navbar-component>
 
-  <div class="mx-auto grid w-full max-w-[1280px] grid-cols-12 gap-4 px-4 py-4">
-    <div class="col-span-12 lg:col-span-2"></div>
-    <section class="col-span-12 lg:col-span-7 space-y-4">
+  <div class="mx-auto w-full max-w-[960px] gap-4 px-4 py-4">
+    <section class="space-y-4">
       <app-create-post-composer-component [currentUser]="currentUser" (createPost)="onCreatePost($event)" />
 
       @for (post of posts; track post.id) {
@@ -21,9 +20,5 @@
         </div>
       }
     </section>
-
-    <aside class="col-span-12 hidden lg:col-span-3 lg:block">
-      <app-suggestions-card-component [users]="users" />
-    </aside>
   </div>
 </main>

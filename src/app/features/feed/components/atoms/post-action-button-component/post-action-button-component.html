@@ -9,7 +9,7 @@
     [size]="iconSize"
     [iconFill]="iconFill"
   />
-  @if (label) {
+  @if (label !== null) {
     <span>{{ label }}</span>
   }
 </button>

@@ -1,7 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Sparkles } from 'lucide-angular';
-import { IconComponent } from '../../atoms/icon-component/icon-component';
+import { IconComponent } from '@shared/components/atoms/icon-component/icon-component';
 @Component({
   selector: 'app-logo-component',
   imports: [IconComponent, NgClass],

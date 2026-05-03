@@ -1,6 +1,6 @@
-import { PostInterface } from '../../interfaces/post.interface';
-import { AuthorInterface } from '../../interfaces/author.interface';
-import { UserInterface } from '../../interfaces/user.interface';
+import { AuthorInterface } from '@interfaces/author.interface';
+import { PostInterface } from '@interfaces/post.interface';
+import { UserInterface } from '@interfaces/user.interface';
 
 const av = (seed: string) =>
   `https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}&backgroundColor=7C3AED,a78bfa,c084fc`;

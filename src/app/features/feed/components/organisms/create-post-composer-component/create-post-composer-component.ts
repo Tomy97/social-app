@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { LucideAngularModule, Plus } from 'lucide-angular';
-import { UserInterface } from '../../../../interfaces/user.interface';
+import { UserInterface } from '@interfaces/user.interface';
 import { CreatePostModalComponent } from '../create-post-modal-component/create-post-modal-component';
 
 @Component({

@@ -1,21 +1,14 @@
 import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
-import {
-  Bookmark,
-  Ellipsis,
-  Heart,
-  LucideAngularModule,
-  MessageCircle,
-  Repeat2,
-  SendHorizontal,
-} from 'lucide-angular';
-import { UserInterface } from '../../../../interfaces/user.interface';
-import { PostInterface } from '../../../../interfaces/post.interface';
-import { ProfileSummaryComponent } from '../../molecules/profile-summary-component/profile-summary-component';
-import { IconFillDirective } from '../../../directive/icon-fill.directive';
+import { Ellipsis, LucideAngularModule } from 'lucide-angular';
+import { UserInterface } from '@interfaces/user.interface';
+import { PostInterface } from '@interfaces/post.interface';
+import { ProfileSummaryComponent } from '@shared/components/molecules/profile-summary-component/profile-summary-component';
+import { PostActionsComponent } from '../../molecules/post-actions-component/post-actions-component';
+import { PostCommentsComponent } from '../../molecules/post-comments-component/post-comments-component';
 
 @Component({
   selector: 'app-post-card-component',
-  imports: [LucideAngularModule, ProfileSummaryComponent, IconFillDirective],
+  imports: [LucideAngularModule, ProfileSummaryComponent, PostActionsComponent, PostCommentsComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './post-card-component.html',
 })
@@ -27,16 +20,11 @@ export class PostCardComponent {
   @Output() repostedToggled = new EventEmitter<number>();
   @Output() commentAdded = new EventEmitter<{ postId: number; content: string }>();
 
-  readonly heart = Heart;
-  readonly messageCircle = MessageCircle;
-  readonly repeat2 = Repeat2;
-  readonly bookmark = Bookmark;
   readonly ellipsis = Ellipsis;
-  readonly send = SendHorizontal;
 
   isCommentsOpen = false;
   commentContent = '';
-  
+
   get postSubtitle(): string {
     return `@${this.post.author.handle} • ${this.post.createdAt}`;
   }
@@ -53,21 +41,19 @@ export class PostCardComponent {
     this.isCommentsOpen = !this.isCommentsOpen;
   }
 
-  onCommentInput(event: Event): void {
-    const target = event.target as HTMLInputElement;
-    this.commentContent = target.value;
-  }
-
   onToggleReposted(): void {
     this.repostedToggled.emit(this.post.id);
   }
 
-  onAddComment(): void {
+  onCommentContentChange(value: string): void {
+    this.commentContent = value;
+  }
+
+  onCommentSubmitted(): void {
     const normalizedContent = this.commentContent.trim();
     if (!normalizedContent) {
       return;
     }
-
     this.commentAdded.emit({ postId: this.post.id, content: normalizedContent });
     this.commentContent = '';
   }

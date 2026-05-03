@@ -1,4 +1,7 @@
-<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/65 p-4">
+<div
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black/65 p-4"
+  (click)="closeModal()"
+>
   <div
     class="w-full max-w-xl rounded-2xl border border-border bg-card p-6 shadow-elevated"
     (click)="$event.stopPropagation()"
@@ -18,7 +21,11 @@
 
     <div class="mb-4 flex items-start gap-3">
       <div class="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-primary/20">
-        <img [src]="currentUser.avatarUrl" alt="Avatar" class="h-full w-full rounded-full object-cover" />
+        <img
+          [src]="currentUser.avatarUrl"
+          alt="Avatar"
+          class="h-full w-full rounded-full object-cover"
+        />
       </div>
       <textarea
         [value]="content"
@@ -78,7 +85,9 @@
       }
     </div>
 
-    <div class="mb-5 text-sm text-muted-foreground">{{ remainingCharacters }} caracteres restantes</div>
+    <div class="mb-5 text-sm text-muted-foreground">
+      {{ remainingCharacters }} caracteres restantes
+    </div>
 
     <div class="flex items-center justify-end gap-3">
       <button

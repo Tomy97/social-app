@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoginFormCardComponent } from '../../../../shared/components/organisms/login-form-card-component/login-form-card-component';
+import { LoginFormCardComponent } from '@features/auth/components/organisms/login-form-card-component/login-form-card-component';
 
 @Component({
   selector: 'app-login',

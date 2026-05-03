@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { LucideAngularModule, LucideIconData } from 'lucide-angular';
-import { IconFillDirective } from '../../../directive/icon-fill.directive';
+import { IconFillDirective } from '@shared/directive/icon-fill.directive';
 
 @Component({
   selector: 'app-post-action-button-component',

@@ -1,7 +1,7 @@
 import { signalStore, withState, withMethods, patchState } from '@ngrx/signals';
-import { AuthStateInterface } from '../../../interfaces/auth-state.interface';
-import { currentUser } from '../../../lib/mock/mock-data';
-import { UserInterface } from '../../../interfaces/user.interface';
+import { AuthStateInterface } from '@interfaces/auth-state.interface';
+import { currentUser } from '@lib/mock/mock-data';
+import { UserInterface } from '@interfaces/user.interface';
 
 const AUTH_STORAGE_KEY = 'social-app-auth';
 

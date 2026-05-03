@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { LucideAngularModule, Image, X } from 'lucide-angular';
-import { UserInterface } from '../../../../interfaces/user.interface';
+import { UserInterface } from '@interfaces/user.interface';
 
 @Component({
   selector: 'app-create-post-modal-component',
@@ -20,6 +20,14 @@ export class CreatePostModalComponent {
   imagePreviewUrl: string | null = null;
   isDragOver = false;
 
+  ngOnInit(): void {
+    document.body.style.overflow = 'hidden';
+  }
+
+  ngOnDestroy(): void {
+    document.body.style.overflow = '';
+  }
+
   closeModal(): void {
     this.closed.emit();
   }
@@ -31,7 +39,10 @@ export class CreatePostModalComponent {
 
   onPublish(): void {
     const normalizedContent = this.content.trim();
-    if ((!normalizedContent && !this.imagePreviewUrl) || normalizedContent.length > this.maxCharacters) {
+    if (
+      (!normalizedContent && !this.imagePreviewUrl) ||
+      normalizedContent.length > this.maxCharacters
+    ) {
       return;
     }
 
@@ -84,7 +95,9 @@ export class CreatePostModalComponent {
 
   get canPublish(): boolean {
     const normalizedContent = this.content.trim();
-    return (!!normalizedContent || !!this.imagePreviewUrl) && this.content.length <= this.maxCharacters;
+    return (
+      (!!normalizedContent || !!this.imagePreviewUrl) && this.content.length <= this.maxCharacters
+    );
   }
 
   private loadImagePreview(file: File): void {

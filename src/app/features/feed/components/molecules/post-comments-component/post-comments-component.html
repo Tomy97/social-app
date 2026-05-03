@@ -1,0 +1,44 @@
+<div class="border-t border-border px-4 py-4">
+  @if (comments.length === 0) {
+    <p class="pb-4 text-center text-muted-foreground">Sé el primero en comentar.</p>
+  } @else {
+    <div class="mb-4 space-y-3">
+      @for (comment of comments; track comment.id) {
+        <div class="flex items-start gap-3">
+          <img
+            [src]="comment.author.avatarUrl"
+            [alt]="comment.author.name"
+            class="h-8 w-8 rounded-full"
+          />
+          <div class="w-full rounded-xl bg-secondary/70 px-3 py-2">
+            <div class="text-sm font-semibold text-foreground">{{ comment.author.name }}</div>
+            <p class="text-sm text-foreground/90">{{ comment.content }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  }
+
+  <div class="flex items-center gap-3">
+    <img
+      [src]="currentUser.avatarUrl"
+      alt="Avatar"
+      class="h-8 w-8 rounded-full bg-primary/20"
+    />
+    <input
+      type="text"
+      [value]="commentContent"
+      (input)="onCommentInput($event)"
+      placeholder="Escribe un comentario..."
+      class="h-10 flex-1 rounded-xl border border-border bg-secondary px-3 text-sm text-foreground placeholder:text-muted-foreground outline-none transition-base focus:border-primary focus:ring-1 focus:ring-primary/40"
+    />
+    <button
+      type="button"
+      class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground transition-base hover:brightness-110 disabled:pointer-events-none disabled:opacity-60"
+      [disabled]="!commentContent.trim()"
+      (click)="commentSubmitted.emit()"
+    >
+      <lucide-icon [img]="send" size="16" />
+    </button>
+  </div>
+</div>

@@ -1,12 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { LucideAngularModule, LogOut, Plus } from 'lucide-angular';
-import { UserInterface } from '../../../../interfaces/user.interface';
-import { LogoComponent } from '../../molecules/logo-component/logo-component';
-import { SearchInputComponent } from '../../molecules/search-input-component/search-input-component';
+import { UserInterface } from '@interfaces/user.interface';
+import { LogoComponent } from '@shared/components/molecules/logo-component/logo-component';
 
 @Component({
   selector: 'app-navbar-component',
-  imports: [LucideAngularModule, LogoComponent, SearchInputComponent],
+  imports: [LucideAngularModule, LogoComponent],
   templateUrl: './navbar-component.html',
 })
 export class NavbarComponent {
