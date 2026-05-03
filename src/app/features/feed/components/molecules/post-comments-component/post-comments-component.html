@@ -32,13 +32,13 @@
       placeholder="Escribe un comentario..."
       class="h-10 flex-1 rounded-xl border border-border bg-secondary px-3 text-sm text-foreground placeholder:text-muted-foreground outline-none transition-base focus:border-primary focus:ring-1 focus:ring-primary/40"
     />
-    <button
-      type="button"
-      class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground transition-base hover:brightness-110 disabled:pointer-events-none disabled:opacity-60"
+    <app-button-component
+      variant="primary"
+      size="icon"
       [disabled]="!commentContent.trim()"
       (click)="commentSubmitted.emit()"
     >
       <lucide-icon [img]="send" size="16" />
-    </button>
+    </app-button-component>
   </div>
 </div>

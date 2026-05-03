@@ -2,10 +2,11 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 import { LucideAngularModule, SendHorizontal } from 'lucide-angular';
 import { CommentInterface } from '@interfaces/comment.interface';
 import { UserInterface } from '@interfaces/user.interface';
+import { ButtonComponent } from '@shared/components/atoms/button-component/button-component';
 
 @Component({
   selector: 'app-post-comments-component',
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, ButtonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './post-comments-component.html',
 })

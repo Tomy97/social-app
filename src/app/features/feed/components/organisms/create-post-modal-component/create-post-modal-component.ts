@@ -1,10 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { LucideAngularModule, Image, X } from 'lucide-angular';
+import { LucideAngularModule, Image } from 'lucide-angular';
 import { UserInterface } from '@interfaces/user.interface';
+import { CloseButtonComponent } from '../../../../../shared/components/atoms/close-button-component/close-button-component';
+import { ImageOverlayButtonComponent } from '../../atoms/image-overlay-button-component/image-overlay-button-component';
+import { ButtonComponent } from '../../../../../shared/components/atoms/button-component/button-component';
 
 @Component({
   selector: 'app-create-post-modal-component',
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, CloseButtonComponent, ImageOverlayButtonComponent, ButtonComponent],
   templateUrl: './create-post-modal-component.html',
 })
 export class CreatePostModalComponent {
@@ -13,7 +16,6 @@ export class CreatePostModalComponent {
   @Output() published = new EventEmitter<{ content: string; imageUrl?: string }>();
 
   readonly image = Image;
-  readonly close = X;
   readonly maxCharacters = 280;
 
   content = '';

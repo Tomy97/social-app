@@ -8,15 +8,7 @@
   >
     <div class="mb-4 flex items-center justify-between">
       <h3 class="text-lg font-bold text-foreground">Crear una publicación</h3>
-      <button
-        type="button"
-        class="rounded-md p-1 text-muted-foreground transition-base hover:bg-secondary hover:text-foreground"
-        (click)="closeModal()"
-      >
-        @if (close) {
-          <lucide-icon [img]="close" size="18" />
-        }
-      </button>
+      <app-close-button-component (click)="closeModal()" />
     </div>
 
     <div class="mb-4 flex items-start gap-3">
@@ -58,13 +50,7 @@
             alt="Selected image preview"
             class="h-36 w-full rounded-lg object-cover"
           />
-          <button
-            type="button"
-            class="absolute right-5 top-5 rounded-md bg-black/60 px-2 py-1 text-xs text-white transition-base hover:bg-black/75"
-            (click)="removeImage()"
-          >
-            Quitar
-          </button>
+          <app-image-overlay-button-component (click)="removeImage()">Quitar</app-image-overlay-button-component>
         </div>
       } @else {
         <div class="text-center">
@@ -73,13 +59,7 @@
           }
           <p>
             Arrastra y suelta una imagen, o
-            <button
-              type="button"
-              class="text-primary hover:underline"
-              (click)="imageFileInput.click()"
-            >
-              explorar
-            </button>
+            <app-button-component variant="link" (click)="imageFileInput.click()">explorar</app-button-component>
           </p>
         </div>
       }
@@ -90,21 +70,8 @@
     </div>
 
     <div class="flex items-center justify-end gap-3">
-      <button
-        type="button"
-        class="h-10 rounded-xl bg-secondary px-5 font-semibold text-foreground transition-base hover:bg-secondary/70"
-        (click)="closeModal()"
-      >
-        Cancelar
-      </button>
-      <button
-        type="button"
-        class="h-10 rounded-xl bg-primary px-5 font-semibold text-primary-foreground transition-base hover:brightness-110 disabled:pointer-events-none disabled:opacity-60"
-        [disabled]="!canPublish"
-        (click)="onPublish()"
-      >
-        Publicar
-      </button>
+      <app-button-component variant="secondary" size="modal" (click)="closeModal()">Cancelar</app-button-component>
+      <app-button-component variant="primary" size="modal" [disabled]="!canPublish" (click)="onPublish()">Publicar</app-button-component>
     </div>
   </div>
 </div>
