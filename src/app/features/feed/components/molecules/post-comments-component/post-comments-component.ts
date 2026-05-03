@@ -5,7 +5,6 @@ import { UserInterface } from '@interfaces/user.interface';
 import { ButtonComponent } from '@shared/components/atoms/button-component/button-component';
 
 @Component({
-  selector: 'app-post-comments-component',
   imports: [LucideAngularModule, ButtonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './post-comments-component.html',

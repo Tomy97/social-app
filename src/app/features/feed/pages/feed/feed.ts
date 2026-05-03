@@ -31,7 +31,7 @@ export class Feed {
 
   onLogout(): void {
     this.authStore.logout();
-    void this.router.navigate(['/login']);
+    void this.router.navigate(['/']);
   }
 
   onCreatePost(event: { content: string; imageUrl?: string } | string): void {

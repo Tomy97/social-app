@@ -1,13 +1,21 @@
 <header class="sticky top-0 z-30 border-b border-border bg-background/80 backdrop-blur-xl">
   <div class="mx-auto flex h-16 w-full max-w-[1280px] items-center justify-between gap-4 px-4">
-    <app-logo-component size="md" [extraClass]="['mx-auto max-w-7xl px-4 h-16 flex items-center gap-4']" />
+    <app-logo-component
+      size="md"
+      [extraClass]="['mx-auto max-w-7xl px-4 h-16 flex items-center gap-4']"
+    />
 
     <div class="flex items-center gap-2">
       <app-avatar-button-component [avatarUrl]="currentUser.avatarUrl" />
       <app-button-component
         variant="ghost"
         size="icon"
-        [extraClass]="['text-muted-foreground', 'hover:text-foreground', 'border-none', 'bg-transparent']"
+        [extraClass]="[
+          'text-muted-foreground',
+          'hover:text-foreground',
+          'border-none',
+          'bg-transparent',
+        ]"
         (click)="logout.emit()"
       >
         <lucide-icon [img]="logOut" size="15" />
